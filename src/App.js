@@ -250,6 +250,39 @@ function ResumeSection() {
 
 // Contact Section
 function ContactSection() {
+  const [formData, setFormData] = React.useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Create mailto link with pre-filled data
+    const subject = `Portfolio Contact from ${formData.name}`;
+    const body = `Hi Farhan,
+
+${formData.message}
+
+Best regards,
+${formData.name}
+${formData.email}`;
+
+    const mailtoLink = `mailto:farhan_abdulla@berkeley.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+  };
+
   return (
     <section id="contact" className="contact-section">
       <div className="container">
@@ -273,17 +306,41 @@ function ContactSection() {
               </a>
             </div>
           </div>
-          <form className="contact-form">
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
-              <input type="text" placeholder="Your Name" required />
+              <input 
+                type="text" 
+                name="name"
+                placeholder="Your Name" 
+                value={formData.name}
+                onChange={handleInputChange}
+                required 
+              />
             </div>
             <div className="form-group">
-              <input type="email" placeholder="Your Email" required />
+              <input 
+                type="email" 
+                name="email"
+                placeholder="Your Email" 
+                value={formData.email}
+                onChange={handleInputChange}
+                required 
+              />
             </div>
             <div className="form-group">
-              <textarea placeholder="Your Message" rows="5" required></textarea>
+              <textarea 
+                name="message"
+                placeholder="Your Message" 
+                rows="5" 
+                value={formData.message}
+                onChange={handleInputChange}
+                required
+              ></textarea>
             </div>
-            <button type="submit" className="submit-btn">Send Message</button>
+            <button type="submit" className="submit-btn">
+              <span className="btn-icon">📧</span>
+              Send Email
+            </button>
           </form>
         </div>
       </div>
