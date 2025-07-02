@@ -6,7 +6,7 @@ function Navigation() {
   const navItems = [
     { label: 'Home', href: '#hero' },
     { label: 'About', href: '#about' },
-    { label: 'Work', href: '#work' },
+    { label: 'Resume', href: '#work' },
     { label: 'Contact', href: '#contact' }
   ];
 
@@ -153,59 +153,95 @@ function AboutSection() {
   );
 }
 
-// Work Section
-function WorkSection() {
-  const projects = [
-    {
-      title: "Computer Vision Classification",
-      description: "Built a deep learning model for image classification with 95% accuracy using CNN architecture.",
-      image: "https://via.placeholder.com/400x250/4F46E5/FFFFFF?text=CV+Project",
-      tags: ["TensorFlow", "Computer Vision", "CNN"]
-    },
-    {
-      title: "NLP Sentiment Analysis",
-      description: "Developed a real-time sentiment analysis system processing 10K+ reviews per minute.",
-      image: "https://via.placeholder.com/400x250/7C3AED/FFFFFF?text=NLP+Project",
-      tags: ["BERT", "Transformers", "Python"]
-    },
-    {
-      title: "Predictive Analytics Dashboard",
-      description: "Created an interactive dashboard for sales forecasting using time series analysis.",
-      image: "https://via.placeholder.com/400x250/059669/FFFFFF?text=Analytics+Dashboard",
-      tags: ["Time Series", "Streamlit", "Prophet"]
-    },
-    {
-      title: "Recommendation System",
-      description: "Built a collaborative filtering system increasing user engagement by 40%.",
-      image: "https://via.placeholder.com/400x250/DC2626/FFFFFF?text=Recommendation+System",
-      tags: ["Collaborative Filtering", "Matrix Factorization", "MLOps"]
-    }
-  ];
-
+// Resume Section
+function ResumeSection() {
   return (
-    <section id="work" className="work-section">
+    <section id="work" className="resume-section">
       <div className="container">
-        <h2 className="section-title">My Work</h2>
-        <div className="projects-grid">
-          {projects.map((project, index) => (
-            <div key={index} className="project-card">
-              <div className="project-image">
-                <img src={project.image} alt={project.title} />
-                <div className="project-overlay">
-                  <button className="view-project-btn">View Project</button>
+        <h2 className="section-title">My Resume</h2>
+        <div className="resume-content">
+          <div className="resume-intro">
+            <h3>Experience & Qualifications</h3>
+            <p>
+              Take a look at my professional journey, education, and technical expertise. 
+              My resume showcases my experience in machine learning, data science, and software development.
+            </p>
+            <div className="resume-actions">
+              <a 
+                href="/resume.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="resume-btn download-btn"
+              >
+                <span className="btn-icon">📄</span>
+                Download Resume
+              </a>
+              <a 
+                href="/resume.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="resume-btn view-btn"
+              >
+                <span className="btn-icon">🔍</span>
+                View Full Screen
+              </a>
+            </div>
+          </div>
+          
+          <div className="resume-viewer">
+            <div className="resume-frame">
+              <div className="frame-header">
+                <div className="frame-controls">
+                  <span className="control-dot close"></span>
+                  <span className="control-dot minimize"></span>
+                  <span className="control-dot maximize"></span>
+                </div>
+                <div className="frame-title">resume.pdf</div>
+                <div className="frame-actions">
+                  <button className="frame-action">⚡</button>
+                  <button className="frame-action">🔗</button>
                 </div>
               </div>
-              <div className="project-info">
-                <h3 className="project-title">{project.title}</h3>
-                <p className="project-description">{project.description}</p>
-                <div className="project-tags">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="project-tag">{tag}</span>
-                  ))}
+              
+              <div className="pdf-container">
+                <iframe
+                  src="/Resume.pdf#toolbar=0&navpanes=0&scrollbar=0"
+                  title="Farhan Abdulla Resume"
+                  className="pdf-viewer"
+                  frameBorder="0"
+                />
+                <div className="pdf-overlay">
+                  <div className="loading-spinner">
+                    <div className="spinner"></div>
+                    <p>Loading Resume...</p>
+                  </div>
                 </div>
               </div>
             </div>
-          ))}
+            
+            <div className="resume-highlights">
+              <div className="highlight-card">
+                <div className="highlight-icon">🎓</div>
+                <h4>Education</h4>
+                <p>UC Berkeley</p>
+              </div>
+              <div className="highlight-card">
+                <div className="highlight-icon">💼</div>
+                <h4>Experience</h4>
+                <p>3+ Years in ML/DS</p>
+              </div>
+              <div className="highlight-card">
+                <div className="highlight-icon">🏆</div>
+                <h4>Projects</h4>
+                <p>5+ Completed</p>
+              </div>
+              <div className="highlight-card">
+                <div className="highlight-icon">🚀</div>
+                <h4>Skills</h4>
+                <p>Python, ML, NLP</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -262,7 +298,7 @@ function App() {
       <main>
         <HeroSection />
         <AboutSection />
-        <WorkSection />
+        <ResumeSection />
         <ContactSection />
       </main>
     </div>
