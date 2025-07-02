@@ -42,48 +42,71 @@ function HeroSection() {
   return (
     <section id="hero" className="hero-section">
       <div className="hero-content">
-        <h1 className="hero-title">
-          ML Engineer & Data Scientist
-        </h1>
-        <p className="hero-subtitle">
-          Transforming data into intelligent solutions through machine learning and advanced analytics
-        </p>
-        <div className="hero-stats">
-          <div className="stat-item">
-            <span className="stat-number">5+</span>
-            <span className="stat-label">Projects Completed</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">3+</span>
-            <span className="stat-label">Years Experience</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">2+</span>
-            <span className="stat-label">ML Models Deployed</span>
+        <div className="hero-profile">
+          <div className="profile-container">
+            <div className="profile-image">
+              <img 
+                src="/farhan_abdulla.jpg" 
+                alt="Farhan Abdulla"
+                className="profile-photo"
+              />
+              <div className="profile-ring"></div>
+              <div className="profile-dots">
+                <span className="dot"></span>
+                <span className="dot"></span>
+                <span className="dot"></span>
+              </div>
+            </div>
+            <div className="profile-status">
+              <span className="status-dot"></span>
+              <span className="status-text">Available for opportunities</span>
+            </div>
           </div>
         </div>
-        <button 
-          className="cta-button"
-          onClick={(e) => {
-            e.preventDefault();
-            document.querySelector('#work').scrollIntoView({ behavior: 'smooth' });
-          }}
-        >
-          View My Work
-        </button>
-      </div>
-      <div className="hero-visual">
-        <div className="floating-card">
-          <div className="code-snippet">
-            <span className="code-line">from transformers import AutoModel</span>
-            <span className="code-line">from transformers import AutoTokenizer</span>
-            <span className="code-line"></span>
-            <span className="code-line">model = AutoModel.from_pretrained(</span>
-            <span className="code-line">  "bert-base-uncased"</span>
-            <span className="code-line">)</span>
-            <span className="code-line">tokenizer = AutoTokenizer.from_pretrained(</span>
-            <span className="code-line">  "bert-base-uncased"</span>
-            <span className="code-line">)</span>
+        <div className="hero-main">
+          <h1 className="hero-title">
+            ML Engineer & Data Scientist
+          </h1>
+          <p className="hero-subtitle">
+            Transforming data into intelligent solutions through machine learning and advanced analytics
+          </p>
+          <div className="hero-stats">
+            <div className="stat-item">
+              <span className="stat-number">5+</span>
+              <span className="stat-label">Projects Completed</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">3+</span>
+              <span className="stat-label">Years Experience</span>
+            </div>
+            <div className="stat-item">
+              <span className="stat-number">2+</span>
+              <span className="stat-label">ML Models Deployed</span>
+            </div>
+          </div>
+          <button 
+            className="cta-button"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector('#work').scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            View My Work
+          </button>
+        </div>
+        <div className="hero-visual">
+          <div className="floating-card">
+            <div className="code-snippet">
+              <span className="code-line">from transformers import AutoModel</span>
+              <span className="code-line">from transformers import AutoTokenizer</span>
+              <span className="code-line"></span>
+              <span className="code-line">model = AutoModel.from_pretrained(</span>
+              <span className="code-line">  "bert-base-uncased"</span>
+              <span className="code-line">)</span>
+              <span className="code-line">tokenizer = AutoTokenizer.from_pretrained(</span>
+              <span className="code-line">  "bert-base-uncased"</span>
+              <span className="code-line">)</span>
+            </div>
           </div>
         </div>
       </div>
